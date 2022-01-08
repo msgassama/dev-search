@@ -29,6 +29,7 @@ def createProject(request):
             project = form.save(commit=False)
             project.owner = profile
             project.save()
+            form.save_m2m()
             return redirect('account')
 
     context['form'] = form
