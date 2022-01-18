@@ -8,6 +8,7 @@ from .forms import (CustomUserCreationForm,
     ProfileForm, 
     SkillForm
 )
+from .utils import searchProfiles
 
 # Create your views here.
 
@@ -70,9 +71,10 @@ def registerUser(request):
 
 
 def profiles(request):
-    profiles = Profile.objects.all()
+    profiles, search_query = searchProfiles(request)
     context = {
-        'profiles': profiles
+        'profiles': profiles,
+        'search_query': search_query
     }
     return render(request, 'users/profiles.html', context)
 
