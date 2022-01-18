@@ -1,16 +1,19 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 
-from .utils import searchProjects
+from .utils import searchProjects, paginateProjects
 from .models import Project
 from .forms import ProjectForm
 
 
 def projects(request):
     projects, search_query = searchProjects(request)
+    custom_range, projects = paginateProjects(request, projects, 3)
+
     context = {
         'projects': projects,
-        'search_query': search_query
+        'search_query': search_query,
+        'custom_range': custom_range
         }
     return render(request, "projects/projects.html", context=context)
 
