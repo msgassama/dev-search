@@ -16,7 +16,7 @@ class CustomUserCreationForm(UserCreationForm):
 
         for name, field in self.fields.items():
             field.widget.attrs.update({
-                'class': 'input'
+                # 'class': 'input'
             })
         self.fields['email'].required = True
         self.fields['first_name'].required = True

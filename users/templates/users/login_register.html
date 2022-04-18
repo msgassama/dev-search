@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
 {% load static %} 
+{% load add_classes %} 
 {% block content %} 
 {% if page == 'register' %}
 
@@ -21,7 +22,7 @@
 
           <div class="form__field">
             <label for="formInput#text">{{field.label}}: </label>
-            {{field}}
+            {{field | add_classes:'input'}}
 
             <!--{% if field.help_text %}
               <small>{{field.help_text}}</small>            
