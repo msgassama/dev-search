@@ -1,6 +1,6 @@
 from django.forms import ModelForm, fields
 from django import forms
-from .models import Project
+from .models import Project, Review
 
 class ProjectForm(ModelForm):
     class Meta:
@@ -29,3 +29,13 @@ class ProjectForm(ModelForm):
         #     'class': 'input',
         #     'placeholder': 'Description'
         # })
+
+class ReviewForm(ModelForm):
+    class Meta:
+        model = Review
+        fields = ['value', 'body']
+
+        labels = {
+            'value': 'Place your vote',
+            'body': 'Add a comment with your vote',
+        }

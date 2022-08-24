@@ -47,6 +47,6 @@ def searchProjects(request):
         Q(description__icontains=search_query) |
         Q(owner__name__icontains=search_query) |
         Q(tags__in=tags)
-    ).order_by('-created')
+    )
 
     return projects, search_query
