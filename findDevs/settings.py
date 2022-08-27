@@ -132,6 +132,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_BACKEND = env_config.get('EMAIL_BACKEND')
+EMAIL_HOST = env_config.get('EMAIL_HOST')
+EMAIL_PORT = env_config.get('EMAIL_PORT')
+EMAIL_USE_TLS = env_config.get('EMAIL_USE_TLS')
+EMAIL_HOST_USER = env_config.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env_config.get('EMAIL_HOST_PASSWORD')
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
