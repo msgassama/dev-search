@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load add_classes %}
+
+{% block content %}
+    
+   
+
+        <!-- Main Section -->
+        <main class="formPage my-xl">
+            <div class="content-box">
+                <div class="formWrapper">
+                    <h3>Enter new password</h3>
+
+                    <p>Please enter your new password twice so we can verify you typed it in correcly.</p>
+
+                    <br>
+    
+                    <form class="form" method="POST">
+                        {% csrf_token %}
+                        <div class="form__field">
+                            <label for="formInput#text">{{form.new_password1.label}}</label>
+                           {{form.new_password1 | add_classes:'input'}} 
+                           <p>{{form.new_password1.help_text}}</p>                     
+                        </div>
+                        <div class="form__field">
+                            <label for="formInput#text">{{form.new_password2.label}}</label>
+                           {{form.new_password2 | add_classes:'input'}}  
+                        </div>
+                        <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+                    </form>
+                </div>
+            </div>
+        </main>
+
+{% endblock content %}
